@@ -1,8 +1,8 @@
-'''import strip
+"""import strip
 list=['    banana','   loganberry','passion']
 a=[w.strip() for w in list]
 print(a)
-from fileinput import filename
+from file input import filename
 
 vec=[[1,2,3],[4,5,6],[7,8,9]]
 for i in vec:
@@ -16,7 +16,7 @@ import os
  if filename.endswith('.py ') and filename.startswith('s')]
 
 maxtir=[[1,2,3,4],[5,6,7,8],[9,10,11,12]]
-list=[[row[i]for row in maxtir] for i in range(4) ]
+list=[[row[i]for row in Maxtor] for i in range(4) ]
 print(list)
 
 def f(v):
@@ -78,7 +78,7 @@ if c in d:
     print(d[c])
 else:
     print('Not found')
-'''
+
 
 import random
 import string
@@ -89,5 +89,60 @@ z=''.join(y)
 d=dict()
 for ch in z:
     d[ch]=d.get(ch,0)+1
-print(d)
+for k,v in d.items():
+    print((k,v),end=',')
 
+
+student={
+    'id':114514,
+    'name':"先辈",
+    'age':22,
+    'score':{'math':99,'english':100,'computer':66},
+    'course':['Python','Data']
+}
+print(f"{student['name']}")
+print(f"{student['score']['math']}")
+print(f"{student['course'][0]}")
+
+student['course'].append('AI')
+print(f"{student['course']}")
+
+
+config={
+    'input_path':'./data/input',
+    'output_path':'./data/output',
+    'log_level':'Error',
+    'Max_treads':4,
+    'timeout':30
+}
+print(f'input_path:{config["input_path"]}')
+config['timeout']=90000
+print(f'timeout:{config["timeout"]}')
+
+
+text='Python is a powerful programming language'
+char_count={}
+for ch in text:
+    char_count[ch]=char_count.get(ch,0)+1
+for i,v in char_count.items():
+    print(i,':',v)
+"""
+#模拟登录系统
+login_cache={}
+def login(user_id,token):
+    login_cache[user_id]=token
+    print(f"User {user_id} login success,Cache updated")
+def check_login(user_id,token):
+    cache_token=login_cache.get(user_id,None)
+    if cache_token==token:
+        return True,"Login in OK"
+    else:
+        return False,"Login in Failed or Token Expired"
+#模拟用户登录
+login("Tom","0d000721")
+print(check_login("Tom","0d000721"))
+login("Jerry","0d000722")
+print(check_login("Jerry","0d000722") )
+#用户登出
+del login_cache["Tom"]
+print(check_login("Tom","0d000722"))

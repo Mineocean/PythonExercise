@@ -126,7 +126,7 @@ for ch in text:
     char_count[ch]=char_count.get(ch,0)+1
 for i,v in char_count.items():
     print(i,':',v)
-"""
+
 #模拟登录系统
 login_cache={}
 def login(user_id,token):
@@ -146,3 +146,28 @@ print(check_login("Jerry","0d000722") )
 #用户登出
 del login_cache["Tom"]
 print(check_login("Tom","0d000722"))
+
+
+
+#配置多条件映射
+#根据用户角色分配用户权限
+role_permissions={
+    'admin':['read','write','delete','create','manage'],
+    'user':['read','write'],
+    'viewer':['read']
+}
+def get_user_permissions(role):
+    return role_permissions.get(role,[])
+for role in ['admin', 'user', 'viewer', 'unknown']:
+    print(f"{role.title()} Permissions", get_user_permissions(role))
+
+import  random
+x=[random.randint(1,100) for i in range(1000)]
+s=set(x)
+print(s)
+for i in s:
+    print(i,':',x.count(i))
+"""
+from re import search
+
+#数据去重

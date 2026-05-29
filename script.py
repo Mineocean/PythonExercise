@@ -170,4 +170,12 @@ for i in s:
 """
 from re import search
 
-#数据去重
+class animal():
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+class dog(animal):
+
+
+
+
